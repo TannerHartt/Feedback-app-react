@@ -73,6 +73,10 @@ header {
   transition: 0.3s;
 }
 
+.noTextDecoration {
+  text-decoration: none;
+}
+
 .rating li label {
   position: absolute;
   top: 50%;

@@ -5,7 +5,7 @@ function Button({ children, version, type, isDisabled }) {
     <button type={type} disabled={isDisabled} className={`btn btn-${version}`}>
         { children }
     </button>
-  )
+  );
 }
 
 Button.defaultProps = {
@@ -21,4 +21,4 @@ Button.propTypes = {
     isDisabled: PropTypes.bool
 }
 
-export default Button
+export default Button;

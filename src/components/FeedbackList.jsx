@@ -1,29 +1,15 @@
 import FeedbackItem from './FeedbackItem';
-import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
-function FeedbackList({ feedback, handleDelete }) {
+function FeedbackList() {
+
+    const { feedback } = useContext(FeedbackContext);
 
     if (!feedback || feedback.length === 0) {
         return <p>No Feedback Yet</p>;
     }
-
-// // TODO Find animation bug that removes the reviews
-//     return (
-//         <div className='feedback-list'>
-//             <AnimatePresence>
-//                 {feedback.map((item) => {
-//                         return  (
-//                             <FeedbackItem
-//                                 key={item.id}
-//                                 item={item}
-//                                 handleDelete={handleDelete}
-//                             />
-//                         );
-//                 })}
-//             </AnimatePresence>
-//         </div>
-//       );
 
   return (
     <div className='feedback-list'>
@@ -32,7 +18,6 @@ function FeedbackList({ feedback, handleDelete }) {
                 <FeedbackItem
                     key={item.id}
                     item={item}
-                    handleDelete={handleDelete}
                 />
             );
         })}
@@ -40,14 +25,5 @@ function FeedbackList({ feedback, handleDelete }) {
   );
 }
 
-FeedbackList.propTypes = {
-    feedback: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            text: PropTypes.string.isRequired,
-            rating: PropTypes.number.isRequired
-        })
-    )
-};
 
 export default FeedbackList
