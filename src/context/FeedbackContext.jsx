@@ -28,7 +28,7 @@ export const FeedbackProvider = ({children}) => {
 
     // Add a feedback item.
     const addFeedback = (newFeedback) => {
-        newFeedback.id = uuidv4();
+        newFeedback.id = parseInt(uuidv4());
         setFeedback([newFeedback, ...feedback]);
     }
 
@@ -36,6 +36,7 @@ export const FeedbackProvider = ({children}) => {
     const editFeedback = (item) => {
         setFeedbackEdit({item, edit: true});
     }
+
 
     // Update a feedback item.
     const updateFeedbackItem = (id, updatedItem) => {
@@ -46,7 +47,7 @@ export const FeedbackProvider = ({children}) => {
 
     return (
         <FeedbackContext.Provider value={{
-            feedback, // feddback: feedback
+            feedback, // feedback: feedback
             deleteFeedback,
             addFeedback,
             editFeedback, // Click function that handles edit
